@@ -36,9 +36,9 @@ function clearValue() {
 }
 
 
-// show Modal 
-
+// show Modal for enter new Task 
 let showPopup = ref(false)
+
 </script>
 <template>
   <div class="container mx-auto my-4">
@@ -47,8 +47,8 @@ let showPopup = ref(false)
     <!-- task loop -->
     <div class="my-2 flex justify-between items-center bg-slate-100 p-3 rounded" v-for="(task, index) in tasks"
       :key="index">
-      <p>{{ task.name }}: <span>{{ task.time }}</span></p>
-      <button @click="removeItem(index)" class="bg-red-100 text-red-500 px-2 py-1 rounded">Delete</button>
+      <p>{{ task.name }}: <span>Time - {{ task.time }}</span></p>
+      <button @click="removeItem(index)" class="bg-red-100 text-red-500 px-2 py-1 rounded hover:bg-red-200">Delete</button>
     </div>
 
     <!-- Add Task Button -->
@@ -58,7 +58,7 @@ let showPopup = ref(false)
     <div class="bg-slate-200 p-5" v-show="showPopup">
       <label for="task-name">Enter Task Name</label><br>
       <input class="w-full p-2 border border-slate-200 rounded" type="text" name="task-name" id="task-name"
-        placeholder="task-99"><br>
+        placeholder="Task 99"><br>
       <label class="mt-3" for="time">Enter Time</label><br>
       <input class="w-full p-2 border border-slate-200 rounded" type="number" name="time" id="time" placeholder="42"><br>
       <button @click.prevent="addNewTask(); showPopup = false"
